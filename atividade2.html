@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+</head>
+<body>
+   
+<h1>Critérios de uma escola</h1>
+ 
+<p id="Results"></p>
+ 
+<script>
+let nomealuno
+let nota1
+let nota2
+let nota3
+let matricula
+let media
+let resultados = ""
+let frequencia
+let resultado
+let nao
+let mediaturma = 0
+let alunos = 0
+let somamedias = 0
+let totalaprovados = 0
+let totalreprovados = 0
+let notamaisalta = 0
+let notamaisbaixa = 10
+
+while(nao != "Encerrar" && nao != "ENCERRAR" && nao != "encerrar") {
+    nomealuno = prompt("Digite o nome do aluno")
+    matricula = Number(prompt("Digite a matricula do aluno"))
+    nota1 = Number(prompt("Digite a Primeira Nota"))
+    nota2 = Number(prompt("Digite a Segunda Nota"))
+    nota3 = Number(prompt("Digite a Terceira Nota"))
+    frequencia = Number(prompt("Digite o numero da frequencia em aulas:"))
+    nao = prompt("Para continuar o cadastro clique em Ok, se deseja encerrar, Escreva Encerrar")
+ 
+    media = (nota1 + nota2 + nota3) / 3
+    alunos ++
+    somamedias += media
+
+    if (media >= 7.0 && frequencia >= 80) {
+        resultado = "Aluno Aprovado"
+        totalAprovados += 1
+    } else {
+        resultado = "Aluno Reprovado"
+        totalReprovados += 1
+    }
+ 
+    if (media > notamaisalta) {
+        notamaisalta = media
+    }
+ 
+    if (media < notamaisbaixa) {
+        notamaisbaixa = media
+    }
+ 
+    resultados += "<br><br>Nome do aluno: " + nomealuno
+    resultados += "<br>Matricula: " + matricula
+    resultados += "<br>Primeira Nota: " + nota1
+    resultados += "<br>Segunda Nota: " + nota2
+    resultados += "<br>Terceira Nota: " + nota3
+    resultados += "<br>Frequência do aluno: " + frequencia + "%"
+    resultados += "<br>Resultado: " + resultado + " com a média de " + media + " e com a frequência de " + frequencia + "%"
+}
+
+    mediaturma = somamedias / alunos
+
+    resultados += "<br>Resumo da Turma:"
+    resultados += "<br>Total de Alunos: " + alunos
+    resultados += "<br>Média da Turma: " + mediaturma
+    resultados += "<br>Nota Mais Alta: " + notamaisalta
+    resultados += "<br>Nota Mais Baixa: " + notamaisbaixa
+    resultados += "<br>Total de Aprovados: " + totalaprovados
+    resultados += "<br>Total de Reprovados: " + totalreprovados
+
+document.getElementById("Results").innerHTML = resultados
+ 
+</script>
+ 
+</body>
+</html>

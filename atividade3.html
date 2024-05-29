@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio3</title>
+</head>
+<body>
+    
+
+
+    <p id="candidato"></p>
+    <h1> Informações gerais</h1>
+    <p>Idade média dos candidatos: <span id="media"></span></p>
+    <p>Total de candidatos: <span id="homens"></span></p>
+    <p>Total de candidatas: <span id="mulheres"></span></p>
+    <p>Candidatos maiores de idade com experiência: <span id="maiores"></span></p>
+
+
+
+
+    <script>
+
+        let candidatos = 0
+        let numero
+        let idade
+        let sexo
+        let experiencia
+        let todasidades = 0
+        let media = 0
+        let homens = 0
+        let mulheres = 0
+        let maiores = ""
+
+        let fim
+
+        let informacoes = ""
+
+        while(fim != "fim"){
+            candidatos++
+
+            numero = (prompt("Digite o número do candidato:"))
+            idade = Number (prompt("Digite a idade do candidato:"))
+            sexo = (prompt("Digite o sexo do candidato com M ou F:"))
+            experiencia = (prompt("Digite se o candidato possui experiência com sim ou não:"))
+
+            todasidades += idade
+            media = todasidades / candidatos
+            
+            if(sexo == "M"){
+                homens++
+            }
+            if(sexo == "F"){
+                mulheres++
+            }
+            if(idade >= 18 && experiencia == "sim"){
+                maiores += "<br>" + numero  
+            }
+            
+            
+            informacoes += "<br>" + "Número do candidato: " + numero + "<br>"
+            informacoes += "<br>" + "Idade do candidato: " + idade + "<br>"
+            informacoes += "<br>" + "Sexo do candidato: " + sexo + "<br>"
+            informacoes += "<br>" + "Se o candidato possui experiência: " + experiencia + "<br>"
+            
+            
+            
+            fim = (prompt("Digite fim para finalizar ou prómixo para continuar"))
+        }
+        
+        document.getElementById("maiores").innerHTML = maiores 
+        document.getElementById("candidato").innerHTML = informacoes
+        document.getElementById("media").innerHTML = media 
+        document.getElementById("homens").innerHTML = homens
+        document.getElementById("mulheres").innerHTML = mulheres
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
